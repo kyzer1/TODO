@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+    
+{% endblock title %}
+
+
+    
+{% block content %}
+{% if request.user.is_authenticated %}
+    <p> hello {{request.user}} </p>
+    <div class="card">
+        {% for todo in todos %}
+    
+            <a href="{% url 'details' todo.id %}" class="card-body"> {{ todo.title }} </a> <br>
+    
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% endblock content %}
